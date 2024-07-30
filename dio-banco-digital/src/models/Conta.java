@@ -12,10 +12,9 @@ public abstract class Conta implements IConta{
 
     public Conta() {}
 
-    public Conta(int agencia, int numero, double saldo, Cliente cliente) {
-        this.agencia = agencia;
-        this.numero = numero;
-        this.saldo = saldo;
+    public Conta(Cliente cliente) {
+        this.agencia = Conta.AGENCIA_PADRAO;
+        this.numero = SEQUENCIAL++;
         this.cliente = cliente;
     }
 
@@ -45,6 +44,34 @@ public abstract class Conta implements IConta{
 
     public double getSaldo() {
         return saldo;
+    }
+
+    public static int getSEQUENCIAL() {
+        return SEQUENCIAL;
+    }
+
+    public static void setSEQUENCIAL(int SEQUENCIAL) {
+        Conta.SEQUENCIAL = SEQUENCIAL;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     protected void imprimirInfosComuns() {
